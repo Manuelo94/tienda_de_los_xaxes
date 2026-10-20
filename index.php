@@ -96,116 +96,80 @@ $productos = $resultado->fetch_all(MYSQLI_ASSOC);
             break;
     }
     ?>
-        <!-- Related items section-->
-        <section class="py-5 bg-light">
-            <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="fw-bolder mb-4">Related products</h2>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $40.00 - $80.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
+       
+<footer class="bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+
+            <!-- Columna 1: Marca y descripción -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">Los Xaxes</h5>
+                <p class="text-white-50 small">
+                    Tu tienda urbana de referencia. Moda, accesorios y colecciones exclusivas fabricadas con los mejores materiales. Diseñado para destacar en cada momento.
+                </p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
+                    <a href="#!" class="text-white text-decoration-none fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#!" class="text-white text-decoration-none fs-5"><i class="bi bi-facebook"></i></a>
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
+
+            <!-- Columna 2: Enlaces rápidos -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-white">Navegación</h6>
+                <p><a href="index.php" class="text-white-50 text-decoration-none small">Inicio</a></p>
+                <p><a href="index.php?p=sobre-nosotros" class="text-white-50 text-decoration-none small">Sobre Nosotros</a></p> 
+            </div>
+
+            <!-- Columna 3: Atención al cliente -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-white">Ayuda y Soporte</h6>
+                <p><a href="#!" class="text-white-50 text-decoration-none small">Envíos y Entregas</a></p>
+                <p><a href="#!" class="text-white-50 text-decoration-none small">Devoluciones y Garantía</a></p>
+                <p><a href="#!" class="text-white-50 text-decoration-none small">Guía de Tallas</a></p>
+                <p><a href="#!" class="text-white-50 text-decoration-none small">Preguntas Frecuentes (FAQ)</a></p>
+            </div>
+
+            <!-- Columna 4: Información de contacto -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-white">Contacto</h6>
+                <p class="text-white-50 small mb-2"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Calle Gran Vía 28, Madrid, España</p>
+                <p class="text-white-50 small mb-2"><i class="bi bi-envelope-fill text-warning me-2"></i> soporte@losxaxes.local</p>
+                <p class="text-white-50 small mb-2"><i class="bi bi-telephone-fill text-warning me-2"></i> +34 912 345 678</p>
+                <p class="text-white-50 small"><i class="bi bi-clock-fill text-warning me-2"></i> Lun - Vie: 9:00 - 19:00</p>
+            </div>
+
+        </div>
+
+        <hr class="my-4 border-secondary opacity-50">
+
+        <!-- Fila inferior: Copyright, métodos de pago y enlaces legales -->
+        <div class="row align-items-center">
+            
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+                <p class="text-white-50 small mb-1">
+                    &copy; <?= date('Y'); ?> <strong>Tienda de los Xaxes</strong>. Todos los derechos reservados.
+                </p>
+                <div class="small">
+                    <a href="#!" class="text-white-50 text-decoration-none me-3">Aviso Legal</a>
+                    <a href="#!" class="text-white-50 text-decoration-none me-3">Política de Privacidad</a>
+                    <a href="#!" class="text-white-50 text-decoration-none">Política de Cookies</a>
+                </div>
+            </div>
+
+            <!-- Métodos de pago aceptados -->
+            <div class="col-md-5 col-lg-4 text-center text-md-end mt-3 mt-md-0">
+                <span class="text-white-50 small me-2 d-block d-sm-inline mb-2 mb-sm-0">Pagos 100% seguros:</span>
+                <span class="fs-4 text-white-50">
+                    <i class="bi bi-credit-card-2-front me-2" title="Tarjeta"></i>
+                    <i class="bi bi-paypal me-2" title="PayPal"></i>
+                    <i class="bi bi-shield-check me-2" title="Pago Seguro"></i>
+                    <i class="bi bi-phone" title="Bizum / Móvil"></i>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
