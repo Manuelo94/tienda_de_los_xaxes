@@ -1,0 +1,11 @@
+ALTER TABLE productos ADD COLUMN IF NOT EXISTS imagen VARCHAR(255) DEFAULT 'default.jpg';
+
+-- Asigna el nombre de la foto a cada producto
+UPDATE productos SET imagen = 'camiseta.jpg' WHERE id = 1;
+UPDATE productos SET imagen = 'sudadera.jpg' WHERE id = 2;
+UPDATE productos SET imagen = 'gorra.jpg' WHERE id = 3;
+UPDATE productos SET imagen = 'mochila.jpg' WHERE id = 4;
+UPDATE productos SET imagen = 'taza.jpg' WHERE id = 5;
+UPDATE productos SET imagen = 'jogger.jpg' WHERE id = 6;
+UPDATE productos SET imagen = 'calcetines.jpg' WHERE id = 7;
+UPDATE productos SET imagen = 'carcasa.jpg' WHERE id = 8;
