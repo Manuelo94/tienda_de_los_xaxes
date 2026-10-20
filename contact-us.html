@@ -1,4 +1,4 @@
-<!-- Formulario de contacto -->
+<!-- Formulario de contacto con validación Bootstrap -->
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
@@ -6,42 +6,76 @@
                 <div class="small mb-1">START SHOP</div>
                 <h1 class="display-5 fw-bolder">Contacta con nosotros</h1>
                 <p class="lead">Cumplimenta el formulario para contactar</p>
-                <form class='justify-content-center' action='generar-mail.php' method='POST'>
-                    <!-- inputs -->
+
+                <form class="needs-validation" action="generar-mail.php" method="POST" novalidate>
                     <div>
                         <!-- input NOMBRE -->
-                        <input class='form-control' type='text' name='nombre' maxlength='40' placeholder='Nombre *' required></input>
-                        <br>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="nombre" maxlength="40" placeholder="Nombre *" required>
+                            <div class="invalid-feedback">Por favor, introduce tu nombre.</div>
+                        </div>
+
                         <!-- input APELLIDOS -->
-                        <input class='form-control' type='text' name='apellidos' maxlength='80' placeholder='Apellidos *' required></input>
-                        <br>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="apellidos" maxlength="80" placeholder="Apellidos *" required>
+                            <div class="invalid-feedback">Por favor, introduce tus apellidos.</div>
+                        </div>
+
                         <!-- input TELÉFONO -->
-                        <input class='form-control' type='text' name='phone' maxlength='30' placeholder='Teléfono *' required></input>
-                        <br>
+                        <div class="mb-3">
+                            <input class="form-control" type="tel" name="phone" maxlength="15" pattern="^[0-9\+\s]{9,15}$" placeholder="Teléfono (ej: 612345678) *" required>
+                            <div class="invalid-feedback">Introduce un teléfono válido (al menos 9 dígitos).</div>
+                        </div>
+
                         <!-- input CORREO ELECTRÓNICO -->
-                        <input class='form-control' type='text' ftype='email' name='email' maxlength='100' placeholder='Correo electrónico *' required></input>
-                        <br>
+                        <div class="mb-3">
+                            <input class="form-control" type="email" name="email" maxlength="100" placeholder="Correo electrónico *" required>
+                            <div class="invalid-feedback">Introduce un correo electrónico válido (ej: usuario@ejemplo.com).</div>
+                        </div>
+
                         <!-- textarea COMENTARIOS -->
-                        <textarea class='form-control' class='form-control' name='comentarios' placeholder='Indica aquí tus comentarios.'></textarea>
-                        <br>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="comentarios" rows="3" placeholder="Indica aquí tus comentarios *" required></textarea>
+                            <div class="invalid-feedback">Por favor, escribe un comentario o consulta.</div>
+                        </div>
+
                         <p><b>Envía tu consulta</b>:</p>
+
                         <!-- botones de ENVIAR & RESTABLECER -->
                         <div>
                             <div class="d-flex">
-                                <button class='form-control' type='submit' value='Enviar' title='Enviar'><i class="bi bi-arrow-right"></i>
-                                    Enviar
-                                </button>&nbsp;
-                                <button class='form-control' type='reset' name='reset' value='Restablecer' title='Restablecer'><i class="bi bi-eraser"></i>
-                                    Restablecer
+                                <button class="btn btn-primary form-control me-2" type="submit" title="Enviar">
+                                    <i class="bi bi-arrow-right"></i> Enviar
+                                </button>
+                                <button class="btn btn-outline-secondary form-control" type="reset" name="reset" title="Restablecer">
+                                    <i class="bi bi-eraser"></i> Restablecer
                                 </button>
                             </div>
-                            <!-- Letra pequeña -->
-                            <br><div class="small mb-1">Al enviar tu consulta, aceptas nuestras Condiciones de uso. <a href="index.php" class="link">¿No lo tienes claro? <b>Volver a Inicio</b></a>.</div>
+                            <div class="small mt-3">Al enviar tu consulta, aceptas nuestras Condiciones de uso. <a href="index.php" class="link">¿No lo tienes claro? <b>Volver a Inicio</b></a>.</div>
                         </div>
                     </div>
                 </form><br>
             </div>
-            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+            <div class="col-md-6">
+                <img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Script para activar la validación dinámica de Bootstrap -->
+<script>
+(() => {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>

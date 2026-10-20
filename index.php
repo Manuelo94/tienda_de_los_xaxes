@@ -68,6 +68,17 @@ $productos = $resultado->fetch_all(MYSQLI_ASSOC);
             include 'contact-us.html';
             break;
 
+        case "solicitud-recibida":
+            // Mensaje de confirmación tras enviar el formulario de contacto
+            echo '<div class="container py-5 text-center my-5">';
+            echo '    <div class="alert alert-success d-inline-block p-4 shadow-sm">';
+            echo '        <h2 class="fw-bolder mb-3"><i class="bi bi-check-circle-fill"></i> ¡Solicitud recibida!</h2>';
+            echo '        <p class="lead mb-4">Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo lo antes posible.</p>';
+            echo '        <a class="btn btn-primary" href="index.php">Volver a la tienda</a>';
+            echo '    </div>';
+            echo '</div>';
+            break;
+
         case "informacion-producto":
             echo '<div class="container py-5 text-center"><h2>Detalle de producto en construcción</h2></div>';
             break;
