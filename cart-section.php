@@ -94,13 +94,12 @@ if ($res) {
                         <span class="fs-4 fw-bolder text-danger" id="cart-total">0.00 €</span>
                     </div>
 
-                    <button class="btn btn-dark w-100 py-2 mb-2" type="button" onclick="alert('¡Pedido tramitado con éxito!')">
-                        <i class="bi bi-lock-fill me-1"></i> Tramitar Pedido
-                    </button>
-                    <a href="index.php" class="btn btn-outline-secondary w-100 py-2">
-                        Seguir Comprando
-                    </a>
-                </div>
+                <a href="index.php?p=checkout" class="btn btn-dark w-100 py-2 mb-2">
+                    <i class="bi bi-lock-fill me-1"></i> Tramitar Pedido
+                </a>
+                <a href="index.php" class="btn btn-outline-secondary w-100 py-2">
+                    Seguir Comprando
+                </a>
             </div>
         </div>
     </div>

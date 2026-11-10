@@ -82,6 +82,22 @@ $productos =$resultado->fetch_all(MYSQLI_ASSOC);
                 include 'cart-section.php';
                 break;
 
+            case "checkout":
+                include 'checkout-section.php';
+                break;
+
+            case "pedido-completado":
+                echo '<div class="container py-5 text-center my-5">';
+                echo '    <div class="alert alert-success d-inline-block p-5 shadow-sm rounded-4">';
+                echo '        <div class="text-success mb-3"><i class="bi bi-patch-check-fill" style="font-size: 4rem;"></i></div>';
+                echo '        <h1 class="fw-bolder mb-3">¡Pedido completado con éxito!</h1>';
+                echo '        <p class="lead mb-4 text-muted">Hemos registrado tu compra y te hemos enviado el comprobante a tu correo electrónico.</p>';
+                echo '        <p class="small text-secondary mb-4">Número de seguimiento: <strong>#XAX-' . rand(10000, 99999) . '</strong></p>';
+                echo '        <a class="btn btn-dark btn-lg px-4" href="index.php">Volver a la tienda</a>';
+                echo '    </div>';
+                echo '</div>';
+                break;
+
             default:
                 echo '<div class="container py-5 text-center my-5"><h2>Página no encontrada</h2><a class="btn btn-dark mt-3" href="index.php">Volver a Inicio</a></div>';
                 break;
