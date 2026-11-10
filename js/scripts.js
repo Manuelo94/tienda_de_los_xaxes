@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectTalla = document.getElementById("select-talla");
     const btnToggleCart = document.getElementById("btn-toggle-cart");
 
+    // Límite máximo de unidades permitido por variante (producto + talla)
+    const MAX_UNIDADES = 10;
+
     // 1. Obtener carrito como objeto: { "id-talla": cantidad, ... }
     function getCarritoMap() {
         try {
@@ -18,11 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
         updateBadge();
     }
 
-    // 2. Actualizar el contador global del navbar
+    // 2. Actualizar el contador global en el navbar
     function updateBadge() {
         if (!badgeCarrito) return;
         const map = getCarritoMap();
-        // Suma de todas las cantidades
         const total = Object.values(map).reduce((acc, curr) => acc + curr, 0);
         badgeCarrito.textContent = total;
     }
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBadge();
 
     // ==========================================
-    // LÓGICA DE LA FICHA DE PRODUCTO
+    // LÓGICA DE LA FICHA DE DETALLE DEL PRODUCTO
     // ==========================================
     if (container && selectTalla && btnToggleCart) {
         const prodId = container.getAttribute("data-id");
@@ -60,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let map = getCarritoMap();
 
             if (btnToggleCart.dataset.action === "add") {
-                map[claveItem] = 1; // Se añade con cantidad 1
+                map[claveItem] = 1;
             } else {
-                delete map[claveItem]; // Se retira del carrito
+                delete map[claveItem];
             }
 
             saveCarritoMap(map);
@@ -105,6 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const subtotal = prod.precio * cantidad;
                 totalCompra += subtotal;
 
+                // Deshabilitar botón '+' si llega al tope de 10
+                const botonPlusDisabled = (cantidad >= MAX_UNIDADES) ? 'disabled' : '';
+
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
                     <td>
@@ -116,15 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                         </div>
                     </td>
-                    <td class="text-center fw-bold">$${prod.precio.toFixed(2)}</td>
+                    <td class="text-center fw-bold">${prod.precio.toFixed(2)} €</td>
                     <td class="text-center">
                         <div class="input-group input-group-sm justify-content-center" style="max-width: 120px; margin: auto;">
                             <button class="btn btn-outline-secondary btn-qty-minus" data-key="${clave}" type="button">-</button>
                             <input type="text" class="form-control text-center bg-white" value="${cantidad}" readonly>
-                            <button class="btn btn-outline-secondary btn-qty-plus" data-key="${clave}" type="button">+</button>
+                            <button class="btn btn-outline-secondary btn-qty-plus" data-key="${clave}" type="button" ${botonPlusDisabled}>+</button>
                         </div>
                     </td>
-                    <td class="text-end fw-bold text-dark">$${subtotal.toFixed(2)}</td>
+                    <td class="text-end fw-bold text-dark">${subtotal.toFixed(2)} €</td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-outline-danger btn-delete-item" data-key="${clave}" title="Eliminar artículo">
                             <i class="bi bi-trash"></i>
@@ -134,19 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 tableBody.appendChild(tr);
             });
 
-            subtotalElem.textContent = `$${totalCompra.toFixed(2)}`;
-            totalElem.textContent = `$${totalCompra.toFixed(2)}`;
+            subtotalElem.textContent = `${totalCompra.toFixed(2)} €`;
+            totalElem.textContent = `${totalCompra.toFixed(2)} €`;
         }
 
         renderCarritoTable();
 
-        // Control de clics en la tabla (sumar, restar, borrar)
+        // Control de eventos: restar, sumar y eliminar artículos
         tableBody.addEventListener("click", (e) => {
             const btnMinus = e.target.closest(".btn-qty-minus");
             const btnPlus = e.target.closest(".btn-qty-plus");
             const btnDelete = e.target.closest(".btn-delete-item");
             let map = getCarritoMap();
 
+            // Restar unidad (si es 1, se elimina del carrito)
             if (btnMinus) {
                 const key = btnMinus.getAttribute("data-key");
                 if (map[key] > 1) {
@@ -158,13 +164,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderCarritoTable();
             }
 
+            // Sumar unidad (bloqueado estrictamente al llegar a MAX_UNIDADES = 10)
             if (btnPlus) {
                 const key = btnPlus.getAttribute("data-key");
-                map[key] += 1;
-                saveCarritoMap(map);
-                renderCarritoTable();
+                if (map[key] < MAX_UNIDADES) {
+                    map[key] += 1;
+                    saveCarritoMap(map);
+                    renderCarritoTable();
+                }
             }
 
+            // Eliminar fila completa
             if (btnDelete) {
                 const key = btnDelete.getAttribute("data-key");
                 delete map[key];

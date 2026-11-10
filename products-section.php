@@ -9,7 +9,6 @@ $mas_vendido = !empty($productos) ? array_shift($productos) : null;
 
 <section class="py-5 bg-light">
     <div class="container px-4 px-lg-5">
-
         <!-- ================= PRODUCTO DESTACADO EN GRANDE ================= -->
         <?php if ($mas_vendido): ?>
             <?php 
@@ -35,13 +34,12 @@ $mas_vendido = !empty($productos) ? array_shift($productos) : null;
                         
                         <div class="fs-4 mb-4">
                             <?php if ($rebajado_top): ?>
-                                <span class="text-muted text-decoration-line-through me-2">$<?= number_format($mas_vendido['precio'], 2) ?></span>
-                                <span class="text-danger fw-bold">$<?= number_format($mas_vendido['precio_rebajado'], 2) ?></span>
+                                <span class="text-muted text-decoration-line-through me-2"><?= number_format($mas_vendido['precio'], 2) ?> €</span>
+                                <span class="text-danger fw-bold"><?= number_format($mas_vendido['precio_rebajado'], 2) ?> €</span>
                             <?php else: ?>
-                                <span class="fw-bold">$<?= number_format($mas_vendido['precio'], 2) ?></span>
+                                <span class="fw-bold"><?= number_format($mas_vendido['precio'], 2) ?> €</span>
                             <?php endif; ?>
                         </div>
-
                         <a class="btn btn-dark btn-lg" href="index.php?p=informacion-producto&id=<?= $mas_vendido['id'] ?>">Ver Producto</a>
                     </div>
                 </div>
@@ -65,12 +63,12 @@ $mas_vendido = !empty($productos) ? array_shift($productos) : null;
                         <?php if ($esta_rebajado): ?>
                             <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
                         <?php endif; ?>
-
+                        
                         <img class="card-img-top" 
                              src="<?= htmlspecialchars($foto) ?>" 
                              alt="<?= htmlspecialchars($producto['nombre']) ?>" 
                              style="height: 200px; object-fit: cover;" />
-
+                             
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder"><?= htmlspecialchars($producto['nombre']) ?></h5>
@@ -82,10 +80,10 @@ $mas_vendido = !empty($productos) ? array_shift($productos) : null;
                                     ?>
                                 </div>
                                 <?php if ($esta_rebajado): ?>
-                                    <span class="text-muted text-decoration-line-through me-1">$<?= number_format($producto['precio'], 2) ?></span>
-                                    <span class="fw-bold">$<?= number_format($producto['precio_rebajado'], 2) ?></span>
+                                    <span class="text-muted text-decoration-line-through me-1"><?= number_format($producto['precio'], 2) ?> €</span>
+                                    <span class="fw-bold"><?= number_format($producto['precio_rebajado'], 2) ?> €</span>
                                 <?php else: ?>
-                                    <span class="fw-bold">$<?= number_format($producto['precio'], 2) ?></span>
+                                    <span class="fw-bold"><?= number_format($producto['precio'], 2) ?> €</span>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -98,6 +96,5 @@ $mas_vendido = !empty($productos) ? array_shift($productos) : null;
                 </div>
             <?php endforeach; ?>
         </div>
-
     </div>
 </section>

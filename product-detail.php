@@ -74,13 +74,13 @@ $foto = (!empty($item['imagen']) && file_exists('assets/productos/' . $item['ima
                     <span class="text-muted small">(<?= number_format($item['valoracion'] ?? 5, 1) ?> / 5)</span>
                 </div>
 
-                <!-- Precios -->
+                <!-- Precios en Euros -->
                 <div class="fs-4 mb-3">
                     <?php if ($esta_rebajado): ?>
-                        <span class="text-muted text-decoration-line-through me-2 fs-5">$<?= number_format($item['precio'], 2) ?></span>
-                        <span class="text-danger fw-bold">$<?= number_format($item['precio_rebajado'], 2) ?></span>
+                        <span class="text-muted text-decoration-line-through me-2 fs-5"><?= number_format($item['precio'], 2) ?> €</span>
+                        <span class="text-danger fw-bold"><?= number_format($item['precio_rebajado'], 2) ?> €</span>
                     <?php else: ?>
-                        <span class="fw-bold text-dark">$<?= number_format($item['precio'], 2) ?></span>
+                        <span class="fw-bold text-dark"><?= number_format($item['precio'], 2) ?> €</span>
                     <?php endif; ?>
                 </div>
 
@@ -97,6 +97,7 @@ $foto = (!empty($item['imagen']) && file_exists('assets/productos/' . $item['ima
                                 <option value="M" selected>Talla M</option>
                                 <option value="L">Talla L</option>
                                 <option value="XL">Talla XL</option>
+                                <option value="UNICA">Talla Única</option>
                             </select>
                         </div>
                     </div>

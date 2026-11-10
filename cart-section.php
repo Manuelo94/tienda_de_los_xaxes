@@ -80,7 +80,7 @@ if ($res) {
                     
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Subtotal</span>
-                        <span class="fw-bold" id="cart-subtotal">$0.00</span>
+                        <span class="fw-bold" id="cart-subtotal">0.00 €</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Envío</span>
@@ -91,7 +91,7 @@ if ($res) {
 
                     <div class="d-flex justify-content-between mb-4">
                         <span class="fs-5 fw-bold">Total</span>
-                        <span class="fs-4 fw-bolder text-danger" id="cart-total">$0.00</span>
+                        <span class="fs-4 fw-bolder text-danger" id="cart-total">0.00 €</span>
                     </div>
 
                     <button class="btn btn-dark w-100 py-2 mb-2" type="button" onclick="alert('¡Pedido tramitado con éxito!')">
